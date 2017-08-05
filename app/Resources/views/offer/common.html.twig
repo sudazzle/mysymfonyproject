@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Offer Setup{% endblock %}
+
+
+{% block body_id 'offer_new' %}
+
+{% block main %}
+{% block body %}
+<h4 class = "heading">{{ header }} <a class="listall" href="{{ url }}">{{ title }}</a></h4>
+
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+
+
+{% endblock %}
+{% endblock %}
+

@@ -1,0 +1,7 @@
+{% block file_widget %}
+    {% spaceless %}	
+		     {% set type = type|default('file') %}
+		     	<label>Upload </label>
+		        <input id="file-3" type="{{ type }}" {{ block('widget_attributes') }} /> 		
+    {% endspaceless %}
+{% endblock file_widget %}

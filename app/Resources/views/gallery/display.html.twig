@@ -1,0 +1,78 @@
+{% extends "::base.html.twig" %}
+{% block title %}List All Gallery Photos{% endblock %}
+
+{% block body %}
+
+<h3 class="heading">{{ header }} <a href="/admin/create/gallery">Add New Photo</a></h3>
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="flash-notice success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="flash-notice error">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<table id="myTable" class="table table-striped">
+<thead>
+
+{# sorting of properties based on query components #}
+    <tr>		
+		<th{% if pagination.isSorted('a.caption') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Caption', 'a.caption') }}</th>		  
+        <th>Image</th>
+		<th>&nbsp;</th>		  
+		<th>&nbsp;</th>	 
+        <th>&nbsp;</th>       
+        <th>&nbsp;</th>       
+	</tr>
+</thead>
+{# table body #}
+<tbody>
+{% for gallery in pagination %}
+<tr {% if loop.index is odd %}class="color"{% endif %}>    
+    <td>{{ gallery.caption }}</td>   
+    <td><img src = "{{ asset(thumblocation ~ '/' ~ gallery.filename) }}" /><td>
+    <td class="editbuttoninlist">		      
+        <a href="/admin/update/gallery/{{gallery.id}}" class="btn btn-sm btn-primary">
+            <i class="fa fa-edit"></i>Edit
+        </a>    
+	</td>
+	<td class="deletebuttoninlist">		          
+        <a href="/admin/delete/gallery/{{gallery.id}}" class="btn btn-sm btn-danger deleteRowData">
+            <i class="fa fa-trash-o"></i>Delete
+        </a>   
+	</td> 
+     
+	<td class="showhideinlist">	 
+        {% if gallery.enabled == 1 %}         
+            <a href="/admin/gallery/hide/{{gallery.id}}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Hide
+            </a>
+        {% else %} 
+            <a href="/admin/gallery/show/{{gallery.id}}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Show
+            </a> 
+        {% endif %}  
+	</td>
+    
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

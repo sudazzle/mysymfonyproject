@@ -1,0 +1,95 @@
+{% extends "::base.html.twig" %}
+{% block title %}List All Testimonials{% endblock %}
+
+{% block body %}
+
+<h3 class="heading">{{ header }} <a href="/admin/create/testimonials">Add New Testimonial</a></h3>
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="flash-notice success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="flash-notice error">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<table id="myTable" class="table table-striped">
+<thead>
+
+{# sorting of properties based on query components #}
+    <tr>		
+		<th{% if pagination.isSorted('a.author') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Author', 'a.author') }}</th>
+		<th{% if pagination.isSorted('a.testimonial') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Testimonial', 'a.testimonial') }}</th>        
+        <th>Image</th>
+		<th>&nbsp;</th>		  
+		<th>&nbsp;</th>	 
+        <th>&nbsp;</th>       
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+	</tr>
+</thead>
+{# table body #}
+<tbody>
+{% for testimonial in pagination %}
+<tr {% if loop.index is odd %}class="color"{% endif %}>    
+    <td>{{ testimonial.author }}</td>
+    <td>{{ testimonial.testimonial }}</td>
+    <td><img src = "{{ asset(thumblocation ~ '/' ~ testimonial.filename) }}" /><td>
+    <td class="editbuttoninlist">		      
+        <a href="/admin/update/testimonials/{{testimonial.id}}" class="btn btn-sm btn-primary">
+            <i class="fa fa-edit"></i>Edit
+        </a>    
+	</td>
+	<td class="deletebuttoninlist">		          
+        <a href="/admin/delete/testimonials/{{testimonial.id}}" class="btn btn-sm btn-danger deleteRowData">
+            <i class="fa fa-trash-o"></i>Delete
+        </a>   
+	</td> 
+    <td class="changebuttoninlist">               
+        <span class="btn btn-sm btn-success" onClick="changeImage({{ testimonial.id }},{{ loop.index }},{{ testimonial.colspan }},'/admin/changeimage/testimonials/{{ testimonial.id }}',this, {{ testimonial.maxWidth }}, {{ testimonial.maxHeight }}, {{ testimonial.minWidth }}, {{ testimonial.minHeight }}, {{ testimonial.maxSize }})">
+            <i class="fa fa-picture-o"></i>Change Image
+        </span>   
+    </td>   
+	<!--<td class="showhideinlist">	 
+        {% if testimonial.enabled == 1 %}         
+            <a href="/admin/testimonials/hide/{{testimonial.id}}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Hide
+            </a>
+        {% else %} 
+            <a href="/admin/testimonials/show/{{testimonial.id}}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Show
+            </a> 
+        {% endif %}  
+	</td> -->
+    <td class="showhideinlist">  
+        {% if testimonial.display == 1 %}         
+            <a href="/admin/testimonials/hideonhome/{{testimonial.id}}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Home Page (Hide)
+            </a>
+        {% else %} 
+            <a href="/admin/testimonials/showonhome/{{testimonial.id}}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Home Page (Show)
+            </a> 
+        {% endif %}  
+    </td> 
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

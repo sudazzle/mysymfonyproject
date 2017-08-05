@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class = "col-lg-12">
+  	<h1 class="dashboard">DashBoard</h1>
+  	<div class = "col-lg-4 dashitems" onClick="changeLocation('/admin/banner')">  		
+  		<img src="{{ asset('imgs/cars/1.jpg') }}" alt="">
+  		<h2>Company Info</h2>
+  	</div>
+  	<div class = "col-lg-4 dashitems" onClick="changeLocation('/admin/banner')">  		
+  		<img src="{{ asset('imgs/cars/2.jpg') }}" alt="">
+  		<h2>Banner Setup</h2>
+  	</div>
+  	<div class = "col-lg-4 dashitems" onClick="changeLocation('/admin/banner')">  		
+  		<img src="{{ asset('imgs/cars/3.jpg') }}" alt="">
+  		<h2>Testimonails</h2>
+  	</div>
+  	<div class = "col-lg-4 dashitems" onClick="changeLocation('/admin/lesson')">  		
+  		<img src="{{ asset('imgs/cars/4.jpg') }}" alt="">
+  		<h2>Lesson</h2>
+  	</div>
+  	<div class = "col-lg-4 dashitems" onClick="changeLocation('/admin/banner')">  		
+  		<img src="{{ asset('imgs/cars/5.jpg') }}" alt="">
+  		<h2>Gallery</h2>
+  	</div>
+  	<div class = "col-lg-4 dashitems" onClick="changeLocation('/admin/banner')">  		
+  		<img src="{{ asset('imgs/cars/6.jpg') }}" alt="">
+  		<h2>Offers &amp; Events</h2>
+  	</div>
+  </div>
+  <script>
+    function changeLocation(location)
+    {
+    	document.location.href = location;
+    } 
+  </script>
+{% endblock %}

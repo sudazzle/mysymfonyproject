@@ -1,0 +1,106 @@
+ header {
+    margin-bottom: 0em;
+}
+
+
+h3.heading{
+    background: #2C3E50;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 20px;
+    border-radius:5px 5px 0 0 ;
+}
+
+.heading a {
+    float: right;
+    background: #ccc;
+    padding: 3px 15px;
+    font-size: 15px;
+    color: #333;
+    border-radius: 5px;
+    text-decoration: none;
+    transition:0.5s;
+}
+.heading a:hover{background:#fff;}
+h4.heading {
+    border-bottom: 5px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size:25px;
+}
+
+.pagination > li > a, .pagination > li > span {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #777;
+    transition: 0.5s;
+}
+
+.pagination > .active > a, .pagination > li > a:hover, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background: #bbb;
+    box-shadow: inset 1px 1px 17px -5px #333;
+}
+
+.dashitems img{width: 100%;}
+
+.col-lg-4.dashitems h2 {
+    background: #938A61;
+    color: #fff;
+    margin-top: 0;
+    padding: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 22px;
+}
+
+.dashitems{cursor: pointer;}
+
+.dashitems:hover{opacity: 0.7;}
+
+
+h1.dashboard {
+    text-align: center;
+    margin-top: 0;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.flash-notice {
+    padding: 10px;
+    color:#fff;
+}
+
+.flash-notice.error {
+    background: #D62C1A;
+}
+
+.flash-notice.success {
+    background: #3EB93E;
+}
+
+.dynamicimagechange{width:100%;}
+
+.colorChange{background:#333;}
+
+a.listall {
+    padding-bottom: 5px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+a.listall:hover {
+    background: #ccc;
+}
+
+.editbuttoninlist{width:50px;}
+.deletebuttoninlist{width:60px;}
+.changebuttoninlist {width: 134px;}
+.showhideinlist {width: 84px;}
+.showhideinlist a{width:100%;}
+.file-error-message {
+    background-color: #D62C1A;
+    color: #fff;}
+
+    .config{float:left; width:100%;}

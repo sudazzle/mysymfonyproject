@@ -1,0 +1,281 @@
+{#
+   This is the base template used as the application layout which contains the
+   common elements and decorates all the other templates.
+   See http://symfony.com/doc/current/book/templating.html#template-inheritance-and-layouts
+#}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Expert Driving Lesson Admin{% endblock %}</title>
+            
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">                  
+            <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/fileinput.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/highlight-solarized-light.css') }}"> 
+            <link rel="stylesheet" href="{{ asset('css/font-lato.css') }}"> 
+            <link rel="stylesheet" href="{{ asset('css/dropdownmenucss.css') }}"> 
+             <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+             <link rel="stylesheet" href="{{ asset('css/custom.css') }}">  
+             <link rel="stylesheet" href="{{ asset('css/jquery-confirm.css') }}"> 
+             <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}"> 
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+    <body id="{% block body_id %}{% endblock %}">
+
+        {% block header %}
+            <header>
+                <div class="navbar navbar-default navbar-static-top" role="navigation">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{{ path('homepage') }}">
+                                Expert Driving Lesson Admin
+                            </a>
+                            <button type="button" class="navbar-toggle"
+                                    data-toggle="collapse"
+                                    data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active"><a href="bootstrap-navbar.html">About Company</a></li>
+                                <li><a href="/admin/gallery">Gallery</a></li> 
+                                <li><a href="/admin/lesson">Lessons</a></li>
+                                <li><a href="/admin/banner">Offers</a></li>
+                                <li><a href="/admin/banner">Events</a></li>
+                                <li><a href="/admin/banner">Banner Setup</a></li>
+                                <li><a href="/admin/testimonials">Testimonials</a></li>                                                          
+                                <!--<li><a href="">Pages<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Services</a></li>
+                                        <li><a href="#">Offers &amp; Events</a></li>
+                                        <li><a href="#">Photo Gallery</a></li>                                         
+                                    </ul>
+                                </li>-->
+                                <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        {% endblock %}
+
+        <div class="container body-container">
+            {% block body %}
+                <div class="row">
+                    <div id="main" class="col-sm-9">
+                        {% block main %}{% endblock %}
+                    </div>                    
+                </div>
+            {% endblock %}
+        </div>
+
+        {% block footer %}
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div id="footer-copyright" class="col-md-6">
+                            <p>&copy; {{ 'now'|date('Y') }} Expert Driving Lesson - Developed By: Sudaman </p>  
+                            <p>Powered By:Symfony </p>                          
+                        </div>
+                        <!--
+                        <div id="footer-resources" class="col-md-6">
+                            <p>
+                                <a href="https://twitter.com/symfony"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/SensioLabs"><i class="fa fa-facebook"></i></a>
+                                <a href="http://symfony.com/blog"><i class="fa fa-rss"></i></a>
+                            </p>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </footer>
+        {% endblock %}
+
+            <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
+            <script src="{{ asset('js/highlight.pack.js') }}"></script>
+            <script src="{{ asset('bundles/app/ckeditor/ckeditor.js') }}"></script> 
+            <script src="{{ asset('js/fileinput.js') }}"></script>
+            <script src="{{ asset('js/bootstrap-3.3.4.min.js') }}"></script>  
+            <script src="{{ asset('js/jquery-confirm.js') }}"></script> 
+            <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>       
+            
+            <script>
+                setTimeout(function() {
+                    $('.success').fadeOut('fast');
+                }, 2000);
+                setTimeout(function() {
+                    $('.error').fadeOut('fast');
+                }, 2000);
+                var isRowAdded = "no";
+                var oldrowIndex = ""; 
+                var oldObj = null;
+
+                function hideFileUpload(maxwidth,maxheight,minWidth,minHeight,maxSize)
+                {
+                     $("#file-3").fileinput({ 
+                        showUpload: false,
+                        allowedFileExtensions : ['jpg', 'png','jpeg'],                       
+                        maxImageWidth: maxwidth,
+                        maxImageHeight: maxheight,
+                        minImageWidth: minWidth,
+                        minImageHeight: minHeight,
+                        maxFileSize: maxSize,
+                        msgImageWidthSmall: 'Width of image file must be at least {size} px.',
+                        msgImageHeightSmall: 'Height of image file must be at least {size} px.',
+                        msgImageWidthLarge: 'Width of image file cannot exceed {size} px.',
+                        msgImageHeightLarge: 'Height of image file cannot exceed {size} px.'                                                       
+                    });
+                } 
+
+                function showFileUpload(maxwidth,maxheight,minWidth,minHeight,maxSize)
+                {                    
+                     $("#file-3").fileinput({
+                        allowedFileExtensions : ['jpg', 'png','jpeg'],                       
+                        maxImageWidth: maxwidth,
+                        maxImageHeight: maxheight,
+                        minImageWidth: minWidth,
+                        minImageHeight: minHeight,
+                        maxFileSize: maxSize,
+                        msgImageWidthSmall: 'Width of image file must be at least {size} px.',
+                        msgImageHeightSmall: 'Height of image file must be at least {size} px.',
+                        msgImageWidthLarge: 'Width of image file cannot exceed {size} px.',
+                        msgImageHeightLarge: 'Height of image file cannot exceed {size} px.'
+                     });                    
+                }
+
+                function confirmBoxDisplay() {
+                    $('.hideButton, .showButton, .deleteRowData').on("click", function(e) {
+                        var link = this.href;                                               
+                        e.preventDefault();
+                        $('.form-group').css('position', 'relative');
+                        $('.ckeditor').css({'position':'absolute', 'bottom':'0px', 'z-index':-99999});
+                        $.confirm({
+                            title: 'Are you sure you want to continue?',
+                            content: 'Click "OKAY" to continue. <br /> Click "CANCEL", if you are not sure.',
+                            confirm: function(){                             
+                                window.location.href = link;                                                              
+                            },
+                            cancel: function(){
+                                return;
+                            }
+                        });
+                    });
+                } 
+
+                function confirmBoxDisplaySubmit() {
+                    $('form').on("submit", function(e) {                                                           
+                        e.preventDefault();                                                                               
+                        $.confirm({
+                            title: 'Are you sure you want to continue?',
+                            content: 'Click "OKAY" to continue. <br /> Click "CANCEL", if you are not sure.',
+                            confirm: function(){                             
+                                $('form').unbind('submit').submit();                                                         
+                            },
+                            cancel: function(){                                                            
+                                return;
+                            }
+                        });
+                    });
+                }  
+
+                function changeImage(id,rowIndex,colspan,url,obj,maxwidth,maxheight,minWidth,minHeight,maxSize)
+                {
+                   if(oldrowIndex !== "" && oldrowIndex !== rowIndex)
+                    {
+                         $('#myTable > tbody > tr').eq(oldrowIndex).remove();
+                         $(oldObj).removeClass('colorChange');
+                         isRowAdded = "no";
+                    }
+
+                    if(oldrowIndex === rowIndex)
+                    {
+                        $('#myTable > tbody > tr').eq(oldrowIndex).remove();
+                        isRowAdded = "no";
+                        oldrowIndex = ""; 
+                        $(oldObj).removeClass('colorChange');
+                        oldObj = null; 
+                        return;
+                    }
+                    
+                   if(isRowAdded === "no")
+                   {                          
+                        $(obj).addClass('colorChange');                                        
+                        var form = '<tr><td colspan="' + colspan + '">';
+                        form = form + '<form method="post"  enctype="multipart/form-data" action="' + url + '" ><div class="form-group dynamicimagechange">';
+                        form = form + '<input id="file-3" name="upfile" type="file" >';
+                        form = form + '</div></form>';
+                        form = form + '</td></tr>';
+                        $("#myTable > tbody > tr").eq(rowIndex-1).after(form); 
+                        isRowAdded = "yes"; 
+                        oldrowIndex = rowIndex;
+                        oldObj = obj;                      
+                        showFileUpload(maxwidth,maxheight,minWidth,minHeight,maxSize);
+                         
+                        $('#file-3').on('fileimageloaded', function(event, previewId) {
+                        if ( String($('.kv-fileinput-error.file-error-message').css('display')) === 'block')
+                            $('button.btn.btn-default.fileinput-upload.fileinput-upload-button').prop('disabled', true);
+                        else                            
+                            confirmBoxDisplaySubmit(); 
+                        });                                            
+                   }                    
+                }                  
+
+                $(document).ready(function() {
+                    maxWidth = $('#maxWidth').val(); 
+                    maxHeight = $('#maxHeight').val();
+                    minWidth = $('#minWidth').val(); 
+                    minHeight = $('#minHeight').val(); 
+                    maxSize = $('#maxSize').val(); 
+                    page = $('#page').val();                
+                           
+                    if (page === 'config')
+                        showFileUpload(maxWidth,maxHeight,minWidth,minHeight,maxSize);
+                    else
+                        hideFileUpload(maxWidth,maxHeight,minWidth,minHeight,maxSize);
+
+                    hljs.initHighlightingOnLoad();
+                    confirmBoxDisplay();
+
+                    setInterval(function(){ 
+                        for(var instanceName in CKEDITOR.instances) {
+                            $("#" + String(instanceName)).val(CKEDITOR.instances[instanceName].getData());  
+                        }    
+                    }, 10);
+
+                    CKEDITOR.on('instanceReady', function(evt){ 
+                        $('.ckeditor').height($('.cke_1').height() - 20);   
+                        $('.form-group').css('position', 'relative');
+                        $('.ckeditor').css({'position':'absolute', 'bottom':'0px', 'z-index':-99999});                      
+                    });
+
+                    
+                    $('#file-3').on('fileerror', function(event, data) {
+                       $('#form_save').prop('disabled', true);
+                    });
+
+                    $('#file-3').on('fileclear', function(event) {
+                       $('#form_save').prop('disabled', false); 
+                    });
+
+                    $('#file-3').on('fileimageloaded', function(event, previewId) {
+                        if ( String($('.kv-fileinput-error.file-error-message').css('display')) === 'block') {
+                            $('#form_save').prop('disabled', true);
+                        }                        
+                    });
+
+                    confirmBoxDisplaySubmit();                                                            
+                });    
+            </script>
+    </body>
+</html>
+
+
+

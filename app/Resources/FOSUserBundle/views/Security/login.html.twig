@@ -1,0 +1,32 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+
+<div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+            	<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}" placeholder="User Name" required autofocus>
+                <input type="password" id="password" name="_password" class="form-control" placeholder="Password" required>
+                <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            </form><!-- /form -->
+            <a href="#" class="forgot-password">
+                Forgot the password?
+            </a>   
+        </div><!-- /card-container -->
+        {% if error %}
+            <div style="padding-top:10px; background:#f00; color:#fff; padding-bottom:10px; margin-top:0px;" class="card card-container">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+    </div><!-- /container -->
+{% endblock fos_user_content %}

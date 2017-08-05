@@ -1,0 +1,296 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"request",
+				"request"
+			],
+			[
+				"a_",
+				"a_bind_params"
+			],
+			[
+				"pas",
+				"password"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Resources/public/ckeditor/samples/js/sample.js",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Resources/public/ckeditor/ckeditor.js",
+		"/D/sudaman/expertdrivingschool/app/Resources/views/banner/common.html.twig",
+		"/D/sudaman/expertdrivingschool/app/Resources/views/base.html.twig",
+		"/C/Users/Sudaman/Desktop/symfony_important_codes_cheatsheet",
+		"/D/sudaman/expertdrivingschool/app/config/config.yml",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Resources/views/Form/fields.html.twig",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Entity/Banner.php",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Form/Extension/ImageTypeExtension.php",
+		"/D/sudaman/expertdrivingschool/app/config/services.yml",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Controller/BannerController.php",
+		"/D/sudaman/symfony_demo/app/Resources/views/base.html.twig",
+		"/D/sudaman/expertdrivingschool/web/bundles/app/ckeditor/config.js",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Entity/Media.php",
+		"/D/xampp/htdocs/englishforall/admin/middleLayer/englishforallDatabase.php",
+		"/D/sudaman/expertdrivingschool/app/Resources/ckeditor/samples/index.html",
+		"/D/sudaman/expertdrivingschool/app/Resources/ckeditor/samples/old/replacebyclass.html",
+		"/D/sudaman/expertdrivingschool/app/Resources/assets/js/ckeditor/config.js",
+		"/D/sudaman/expertdrivingschool/app/Resources/ckeditor/ckeditor.js",
+		"/D/sudaman/expertdrivingschool/app/Resources/ckeditor/samples/js/sample.js",
+		"/D/sudaman/expertdrivingschool/app/Resources/ckeditor/samples/js/sf.js",
+		"/D/sudaman/expertdrivingschool/app/Resources/assets/js/ckeditor/samples/index.html",
+		"/D/sudaman/expertdrivingschool/app/Resources/assets/js/ckeditor/ckeditor.js",
+		"/D/sudaman/expertdrivingschool/app/config/config_dev.yml",
+		"/D/sudaman/symfony_demo/app/config/config.yml",
+		"/D/sudaman/expertdrivingschool/app/config/routing_dev.yml",
+		"/D/sudaman/symfony_demo/web/css/app.css",
+		"/C/Users/Sudaman/Desktop/smartmenus-1.0.0-beta1/demo/bootstrap-navbar.html",
+		"/D/sudaman/expertdrivingschool/web/css/app.css",
+		"/D/sudaman/expertdrivingschool/app/Resources/assets/css/jquery.smartmenus.bootstrap.css",
+		"/D/sudaman/expertdrivingschool/app/Resources/assets/js/jquery.smartmenus.bootstrap.js",
+		"/D/svn/iremit9Nepal/Iremit/web.config",
+		"/D/sudaman/symfony_demo/app/.htaccess",
+		"/D/sudaman/expertdrivingschool/web/js/app.js",
+		"/D/sudaman/symfony_demo/app/Resources/views/admin/layout.html.twig",
+		"/D/sudaman/symfony_demo/app/Resources/views/admin/blog/new.html.twig",
+		"/D/sudaman/symfony_demo/app/Resources/views/admin/blog/_form.html.twig",
+		"/D/sudaman/symfony_demo/app/Resources/assets/js/highlight.pack.js",
+		"/D/sudaman/symfony_demo/web/js/app.js",
+		"/D/sudaman/symfony_demo/src/AppBundle/Controller/Admin/BlogController.php",
+		"/D/sudaman/symfony_demo/src/AppBundle/Entity/Post.php",
+		"/D/sudaman/symfony_demo/src/AppBundle/Utils/Markdown.php",
+		"/D/sudaman/symfony_demo/src/AppBundle/Utils/Slugger.php",
+		"/D/sudaman/symfony_demo/src/AppBundle/Repository/PostRepository.php",
+		"/D/sudaman/symfony_demo/src/AppBundle/Form/CommentType.php",
+		"/D/sudaman/symfony_demo/src/AppBundle/Form/PostType.php",
+		"/D/sudaman/symfony_demo/src/AppBundle/Controller/BlogController.php",
+		"/D/sudaman/symfony_demo/app/config/routing.yml",
+		"/D/sudaman/symfony_demo/app/config/parameters.yml",
+		"/D/sudaman/symfony_demo/app/Resources/assets/scss/main.scss",
+		"/D/sudaman/symfony_demo/app/Resources/assets/css/highlight-solarized-light.css",
+		"/D/sudaman/symfony_demo/app/Resources/assets/css/font-lato.css",
+		"/D/sudaman/symfony_demo/src/AppBundle/DataFixtures/ORM/LoadFixtures.php",
+		"/D/sudaman/symfony_demo/src/AppBundle/Twig/SourceCodeExtension.php",
+		"/D/sudaman/symfony_demo/src/AppBundle/Twig/AppExtension.php",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/CustomClasses/Thumbnail.php",
+		"/D/sudaman/expertdrivingschool/app/Resources/views/banner/display.html.twig",
+		"/D/xampp/htdocs/expertdrivinglesson/css/bootstrap-theme.css",
+		"/D/xampp/htdocs/expertdrivinglesson/css/bootstrap.min.css",
+		"/D/xampp/htdocs/expertdrivinglesson/css/main.css",
+		"/D/xampp/htdocs/expertdrivinglesson/index.html",
+		"/D/xampp/htdocs/expertdrivinglesson/css/bootstrap.css",
+		"/D/xampp/htdocs/expertdrivinglesson/css/bootstrap-theme.min.css",
+		"/D/xampp/htdocs/expertdrivinglesson/css/bootstrap.css.map",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Form/BannerType.php",
+		"/D/sudaman/expertdrivingschool/app/config/routing.yml",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Resources/views/banner/create.html.twig",
+		"/D/sudaman/expertdrivingschool/app/Resources/views/banner/create.html.twig",
+		"/D/xampp/htdocs/englishforall/admin/middleLayer/UploadFiles.php",
+		"/D/xampp/htdocs/englishforall/admin/middleLayer/upload.php",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Entity/Test.php",
+		"/D/sudaman/expertdrivingschool/src/AppBundle/Controller/DefaultController.php",
+		"/D/sudaman/symfony_demo/app/config/services.yml",
+		"/D/sudaman/symfony_demo/src/AppBundle/EventListener/ControllerListener.php",
+		"/D/sudaman/expertdrivingschool/app/config/parameters.yml",
+		"/D/sudaman/symfony_demo/app/config/routing_dev.yml",
+		"/D/symfony2/src/Acme/DemoBundle/DataFixtures/PHPCR/LoadPageData.php",
+		"/D/xampp/htdocs/filter/index.php",
+		"/D/xampp/htdocs/filter/text.php",
+		"/D/xampp/htdocs/englishforall/js/banner/banner.js",
+		"/D/xampp/htdocs/englishforall/css/banner/slider.css",
+		"/C/Users/Sudaman/Desktop/testsite/reset.css",
+		"/C/Users/Sudaman/Desktop/testsite/index.html",
+		"/C/Users/Sudaman/Desktop/expert/website.html",
+		"/D/symfony2tutorial/app/Resources/data/pages/test.yml",
+		"/D/xampp/htdocs/englishforall/includes/header.php",
+		"/D/xampp/htdocs/englishforall/includes/metadata.php",
+		"/C/Users/Sudaman/Desktop/expert/index.html",
+		"/C/Users/Sudaman/Desktop/testsite/website.html",
+		"/C/Users/Sudaman/Desktop/testsite/logos.html",
+		"/C/Users/Sudaman/Desktop/bestremit/daily_activity_report.asp",
+		"/C/Users/Sudaman/Desktop/banner.js",
+		"/C/Users/Sudaman/Desktop/test11.html",
+		"/C/Users/Sudaman/Desktop/newtest.html",
+		"/C/Users/Sudaman/Desktop/guest.html",
+		"/C/Users/Sudaman/Desktop/test.html",
+		"/C/Users/Sudaman/Desktop/bestremit/activity_report.asp",
+		"/D/xampp/htdocs/englishforall/admin/frontend/changePassword.php",
+		"/D/xampp/htdocs/englishforall/admin/middleLayer/login.php",
+		"/D/xampp/htdocs/englishforall/admin/frontend/addemployee.php",
+		"/D/xampp/htdocs/englishforall/admin/middleLayer/constant.php",
+		"/D/xampp/htdocs/test123/index.php",
+		"/D/xampp/htdocs/englishforall/admin/middleLayer/edit.php",
+		"/C/Users/Sudaman/Desktop/editEcheckDetail.asp",
+		"/D/xampp/htdocs/englishforall/admin/middleLayer/User.php",
+		"/D/xampp/htdocs/englishforall/admin/middleLayer/loginattempt.php",
+		"/C/Users/Sudaman/Desktop/newone.html",
+		"/C/Users/Sudaman/Downloads/edit.php",
+		"/D/svn/iremit9Nepal/Iremit/admin/remit/SEND_LOCAL_TRNs/sendmoney.asp",
+		"/D/svn/iremit9Nepal/Iremit/admin/remit/balance/allagentbalance.asp",
+		"/D/svn/iremit9Nepal/Iremit/admin/remit/balance/allagentbalance_report.asp"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"form",
+			"input",
+			"a{",
+			"setFile",
+			"path"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sample.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 293.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

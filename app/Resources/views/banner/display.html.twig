@@ -1,0 +1,85 @@
+{% extends "::base.html.twig" %}
+{% block title %}AppBundle:Banner:create{% endblock %}
+
+{% block body %}
+
+<h3 class="heading">{{ header }} <a href="/admin/create/banner">Add New Banner</a></h3>
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="flash-notice success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="flash-notice error">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<table id="myTable" class="table table-striped">
+<thead>
+
+{# sorting of properties based on query components #}
+    <tr>		
+		<th{% if pagination.isSorted('a.mainQuote') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Main Quote', 'a.mainQuote') }}</th>
+		<th{% if pagination.isSorted('a.subQuote') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Sub Quote', 'a.subQuote') }}</th>
+        <th{% if pagination.isSorted('a.page') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Page', 'a.page') }}</th>
+        <th>Image</th>
+		<th>&nbsp;</th>		  
+		<th>&nbsp;</th>	 
+        <th>&nbsp;</th>       
+        <th>&nbsp;</th>
+	</tr>
+</thead>
+{# table body #}
+<tbody>
+{% for banner in pagination %}
+<tr {% if loop.index is odd %}class="color"{% endif %}>    
+    <td>{{ banner.mainQuote }}</td>
+    <td>{{ banner.subQuote }}</td>
+    <td>{{ banner.page }}</td>
+    <td><img src = "{{ asset(thumblocation ~ '/' ~ banner.fileName) }}" /><td>
+    <td class="editbuttoninlist">		      
+        <a href="/admin/update/banner/{{banner.id}}" class="btn btn-sm btn-primary">
+            <i class="fa fa-edit"></i>Edit
+        </a>    
+	</td>
+	<td class="deletebuttoninlist">		          
+        <a href="/admin/delete/banner/{{banner.id}}" class="btn btn-sm btn-danger deleteRowData">
+            <i class="fa fa-trash-o"></i>Delete
+        </a>   
+	</td> 
+    <td class="changebuttoninlist">               
+        <span class="btn btn-sm btn-success" onClick="changeImage({{ banner.id }},{{ loop.index }},{{ banner.colspan }},'/admin/changeimage/banner/{{ banner.id }}',this, {{ banner.maxWidth }}, {{ banner.maxHeight }}, {{ banner.minWidth }}, {{ banner.minHeight }}, {{ banner.maxSize }})">
+            <i class="fa fa-picture-o"></i>Change Image
+        </span>   
+    </td>   
+	<td class="showhideinlist">	 
+        {% if banner.isEnabled == 1 %}         
+            <a href="/admin/banner/hide/{{banner.id}}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Hide
+            </a>
+        {% else %} 
+            <a href="/admin/banner/show/{{banner.id}}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Show
+            </a> 
+        {% endif %}  
+	</td> 
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

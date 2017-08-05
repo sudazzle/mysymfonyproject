@@ -1,0 +1,85 @@
+{% extends "::base.html.twig" %}
+{% block title %}Events Setup{% endblock %}
+
+{% block body %}
+
+<h3 class="heading">{{ header }} <a href="/admin/create/event">Add New Event</a></h3>
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="flash-notice success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="flash-notice error">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+<table id="myTable" class="table table-striped">
+<thead>
+
+{# sorting of properties based on query components #}
+    <tr>		
+		<th{% if pagination.isSorted('a.title') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Title', 'a.title') }}</th>
+		<th{% if pagination.isSorted('a.detail') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Detail', 'a.detail') }}</th>  
+        <th>Date</th>      
+        <th>Image</th>				  
+		<th>&nbsp;</th>	 
+        <th>&nbsp;</th>       
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+	</tr>
+</thead>
+{# table body #}
+<tbody>
+{% for event in pagination %}
+<tr {% if loop.index is odd %}class="color"{% endif %}>    
+    <td>{{ event.title }}</td>
+    <td>{{ event.detail }}</td>
+    <td>{{ event.eventdate|date('Y-m-d') }}</td>
+    <td><img src = "{{ asset(thumblocation ~ '/' ~ event.filename) }}" /><td>
+    <td class="editbuttoninlist">		      
+        <a href="/admin/update/event/{{event.id}}" class="btn btn-sm btn-primary">
+            <i class="fa fa-edit"></i>Edit
+        </a>    
+	</td>
+	<td class="deletebuttoninlist">		          
+        <a href="/admin/delete/event/{{event.id}}" class="btn btn-sm btn-danger deleteRowData">
+            <i class="fa fa-trash-o"></i>Delete
+        </a>   
+	</td> 
+    <td class="changebuttoninlist">               
+        <span class="btn btn-sm btn-success" onClick="changeImage({{ event.id }},{{ loop.index }},{{ event.colspan }},'/admin/changeimage/event/{{ event.id }}',this, {{ event.maxWidth }}, {{ event.maxHeight }}, {{ event.minWidth }}, {{ event.minHeight }}, {{ event.maxSize }})">
+            <i class="fa fa-picture-o"></i>Change Image
+        </span>   
+    </td>   
+	<td class="showhideinlist">	 
+        {% if event.enabled == 1 %}         
+            <a href="/admin/event/hide/{{event.id}}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Hide
+            </a>
+        {% else %} 
+            <a href="/admin/event/show/{{event.id}}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Show
+            </a> 
+        {% endif %}  
+	</td>    
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{# display navigation #}
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

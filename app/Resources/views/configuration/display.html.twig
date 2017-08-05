@@ -1,0 +1,240 @@
+{% extends "::base.html.twig" %}
+{% block title %}Events Setup{% endblock %}
+
+{% block body %}
+
+<h3 class="heading">{{ header }} </h3>
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="flash-notice success">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="flash-notice error">
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+{# sorting of properties based on query components #}
+<div class="row">
+<div class="col-lg-6">
+    <form name="form" method="post" action="/admin/update/configuration"> 
+    <div class="form-group config"> 
+        <label class="control-label required config" >Company Name</label>                   
+        <input type="text" name="value" required="required" maxlength="30" value="{{ companyname["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">
+        <input type="hidden" name="id" value="{{ companyname["id"] }}">
+        <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-edit"></i>Edit</button>
+    </div> 
+    </form>      
+    <h4 style="background:#666; color:#fff; float:left; width:100%; padding:5px 10px; border-radius:0 10px 10px 0; width:50%;">Address</h4>
+    <div class="form-group config"> 
+        <label class="control-label required config" >Country</label>                   
+        <input type="text" required="required" maxlength="30" value="{{ country["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">
+        <a href="/admin/update/configuration/country["id"]" class="btn btn-sm btn-primary" style="float:left;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>
+   
+    <div class="form-group config"> 
+        <label class="control-label required config" >State</label>                   
+        <input type="text" required="required" maxlength="30" value="{{ state["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">
+        <a href="/admin/update/configuration/{{ state["id"] }}" class="btn btn-sm btn-primary" style="float:left;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>    
+    
+    <div class="form-group config"> 
+        <label class="control-label required config" >Street</label>                   
+        <input type="text" required="required" maxlength="30" value="{{ province["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">
+        <a href="/admin/update/configuration/{{ province["id"] }}" class="btn btn-sm btn-primary" style="float:left;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>
+    
+    <div class="form-group config"> 
+        <label class="control-label required config" >Block</label>                   
+        <input type="text" required="required" maxlength="30" value="{{ address["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">
+        <a href="/admin/update/configuration/{{ address["id"] }}" class="btn btn-sm btn-primary" style="float:left;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>
+    <h4 style="background:#666; color:#fff; float:left; width:100%; padding:5px 10px; border-radius:0 10px 10px 0; width:50%;">Contact Details</h4>
+    <div class="form-group config"> 
+        <label class="control-label required config" >Contact Number</label>                   
+        <input type="text" required="required" maxlength="30" value="{{ contactno["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">
+        <a href="/admin/update/configuration/{{ contactno["id"] }}" class="btn btn-sm btn-primary" style="float:left;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div> 
+   
+    <div class="form-group config"> 
+        <label class="control-label required config" >Email Address</label>                   
+        <input type="text" required="required" maxlength="30" value="{{ email["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">
+        <a href="/admin/update/configuration/{{ email["id"] }}" class="btn btn-sm btn-primary" style="float:left;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>
+
+    <h4 style="background:#666; color:#fff; float:left; width:100%; padding:5px 10px; border-radius:0 10px 10px 0; width:50%;">Social Medias</h4>
+
+    <div class="form-group config"> 
+        <label class="control-label required config" >{{ facebook["value"] }}</label> 
+        <input type="text" required="required" maxlength="30" value="{{ facebook["linkurl"] }}" class="form-control" style = "margin-bottom:5px; float:left; height:34px;"> 
+        <a href="/admin/update/configuration/{{ facebook["id"] }}" class="btn btn-sm btn-primary" style="margin-right:5px;">
+        <i class="fa fa-edit"></i>Edit</a>                 
+         {% if facebook["enabled"] == 1 %}         
+            <a href="/admin/configuration/hide/{{ facebook["id"] }}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Hide
+            </a>
+        {% else %} 
+            <a href="/admin/configuration/show/{{ facebook["id"] }}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Show
+            </a> 
+        {% endif %}         
+    </div>
+
+    <div class="form-group config"> 
+        <label class="control-label required config" >{{ twitter["value"] }}</label> 
+        <input type="text" required="required" maxlength="30" value="{{ twitter["linkurl"] }}" class="form-control" style = "margin-bottom:5px; float:left; height:34px;"> 
+        <a href="/admin/update/configuration/{{ twitter["id"] }}" class="btn btn-sm btn-primary" style="margin-right:5px;">
+        <i class="fa fa-edit"></i>Edit</a>                 
+         {% if twitter["enabled"] == 1 %}         
+            <a href="/admin/configuration/hide/{{ twitter["id"] }}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Hide
+            </a>
+        {% else %} 
+            <a href="/admin/configuration/show/{{ twitter["id"] }}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Show
+            </a> 
+        {% endif %}         
+    </div>
+
+    <div class="form-group config"> 
+        <label class="control-label required config" >{{ pinterest["value"] }}</label> 
+        <input type="text" required="required" maxlength="30" value="{{ pinterest["linkurl"] }}" class="form-control" style = "margin-bottom:5px; float:left; height:34px;"> 
+        <a href="/admin/update/configuration/{{ pinterest["id"] }}" class="btn btn-sm btn-primary" style="margin-right:5px;">
+        <i class="fa fa-edit"></i>Edit</a>                 
+         {% if pinterest["enabled"] == 1 %}         
+            <a href="/admin/configuration/hide/{{ pinterest["id"] }}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Hide
+            </a>
+        {% else %} 
+            <a href="/admin/configuration/show/{{ pinterest["id"] }}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Show
+            </a> 
+        {% endif %}         
+    </div>
+
+    <div class="form-group config"> 
+        <label class="control-label required config" >{{ googleplus["value"] }}</label> 
+        <input type="text" required="required" maxlength="30" value="{{ googleplus["linkurl"] }}" class="form-control" style = "margin-bottom:5px; float:left; height:34px;"> 
+        <a href="/admin/update/configuration/{{ googleplus["id"] }}" class="btn btn-sm btn-primary" style="margin-right:5px;">
+        <i class="fa fa-edit"></i>Edit</a>                 
+         {% if googleplus["enabled"] == 1 %}         
+            <a href="/admin/configuration/hide/{{ googleplus["id"] }}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Hide
+            </a>
+        {% else %} 
+            <a href="/admin/configuration/show/{{ googleplus["id"] }}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Show
+            </a> 
+        {% endif %}         
+    </div>
+
+    <div class="form-group config"> 
+        <label class="control-label required config" >{{ linkedin["value"] }}</label> 
+        <input type="text" required="required" maxlength="30" value="{{ linkedin["linkurl"] }}" class="form-control" style = "margin-bottom:5px; float:left; height:34px;"> 
+        <a href="/admin/update/configuration/{{ linkedin["id"] }}" class="btn btn-sm btn-primary" style="margin-right:5px;">
+        <i class="fa fa-edit"></i>Edit</a>                 
+         {% if linkedin["enabled"] == 1 %}         
+            <a href="/admin/configuration/hide/{{ linkedin["id"] }}" class="btn btn-sm btn-info hideButton">
+                <i class="fa fa-eye-slash"></i>Hide
+            </a>
+        {% else %} 
+            <a href="/admin/configuration/show/{{ linkedin["id"] }}" class="btn btn-sm btn-warning showButton">
+                <i class="fa fa-eye"></i>Show
+            </a> 
+        {% endif %}         
+    </div> 
+    
+    <h4 style="background:#666;color:#fff;float:left;width:100%;padding:5px 10px;border-radius:0 10px 10px 0;width:50%;">Important Links</h4>
+
+    <div class="form-group config"> 
+        <label class="control-label required config" >Important Link 1</label>  
+        <input type="text" required="required" maxlength="30" value="{{ interestinglink1["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px; margin-bottom:5px;">
+        <input type="text" required="required" maxlength="30" value="{{ interestinglink1["linkurl"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">                 
+         <a href="/admin/update/configuration/{{ interestinglink1["id"] }}" class="btn btn-sm btn-primary" style="float:left;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>
+
+    <div class="form-group config"> 
+        <label class="control-label required config" >Important Link 2</label>  
+        <input type="text" required="required" maxlength="30" value="{{ interestinglink2["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px; margin-bottom:5px;">
+        <input type="text" required="required" maxlength="30" value="{{ interestinglink2["linkurl"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">                 
+         <a href="/admin/update/configuration/{{ interestinglink2["id"] }}" class="btn btn-sm btn-primary" style="float:left;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>
+
+    <div class="form-group config"> 
+        <label class="control-label required config" >Important Link 3</label>  
+        <input type="text" required="required" maxlength="30" value="{{ interestinglink3["value"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px; margin-bottom:5px;">
+        <input type="text" required="required" maxlength="30" value="{{ interestinglink3["linkurl"] }}" class="form-control" style="width:85%;margin-right:5px; float:left; height:34px;">                 
+         <a href="/admin/update/configuration/{{ interestinglink3["id"] }}" class="btn btn-sm btn-primary" style="float:left;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div> 
+</div>
+
+<div class="col-lg-6">
+
+    <div class="form-group"> 
+        <label class="control-label required" >Company Logo</label> 
+        <div style="width:100%; padding:10px 30px;">
+        <img src = "{{ asset(thumblocation ~ '/' ~ companylogo["filename"]) }}" style="width:90%; margin-bottom:10px;"/>    
+        </div>  
+         <form method="post"  enctype="multipart/form-data" action="" > 
+                <input type="hidden" id = "maxWidth" value = "{{ maxWidth }}" />
+                <input type="hidden" id = "maxHeight" value = "{{ maxHeight }}" />
+                <input type="hidden" id = "minWidth" value = "{{ minWidth }}" />
+                <input type="hidden" id = "minHeight" value = "{{ minHeight }}" />
+                <input type="hidden" id = "maxSize" value = "{{ maxSize }}" /> 
+                <input type="hidden" id = "page" value = "config" />        
+                <input id="file-3" name="upfile" type="file" />           
+        </form>
+    </div>
+
+    <div class="form-group">      
+    <label class="control-label required" >Detail about Company</label>
+    <textarea id="form_detail1" name="form[value]" required="required" class="ckeditor form-control">
+    {{ companydetail["value"] }}
+    </textarea>
+    <a href="/admin/update/configuration/{{ companydetail["id"] }}" class="btn btn-sm btn-primary" style="float:left; margin-top:10px;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>
+
+    <div class="form-group">      
+         <label class="control-label required config" style="margin-top:20px;width:100%;">Mission</label>
+    <textarea id="form_detail1" name="form[value]" required="required" class="form-control">
+    {{ mission["value"] }}
+    </textarea>
+    <a href="/admin/update/configuration/{{ mission["id"] }}" class="btn btn-sm btn-primary" style="float:left; margin-top:10px;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>
+
+    <div class="form-group">      
+         <label class="control-label required" style="margin-top:20px;width:100%;">Vision</label>
+    <textarea id="form_detail1" name="form[value]" required="required" class="form-control">
+    {{ vision["value"] }}
+    </textarea>
+    <a href="/admin/update/configuration/{{ vision["id"] }}" class="btn btn-sm btn-primary" style="float:left; margin-top:10px;">
+        <i class="fa fa-edit"></i>Edit</a>
+    </div>          
+
+</div>
+</div> 
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
